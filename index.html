@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literary Movements Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 20px;
+        }
+        .quiz-container {
+            background-color: #fdeae5;
+            border: 2px solid #EA6852;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #7a2f27;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            color: #7a2f27;
+            font-size: 18px;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+            color: #7a2f27;
+        }
+        button {
+            background-color: #6cc898;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5ba687;
+        }
+        .result {
+            margin-top: 20px;
+            color: #7a2f27;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Literary Movements Quiz</h1>
+    <form id="quiz">
+        <div class="question">
+            <p>1. Which of the following themes is most closely associated with Early American and Puritan Literature?</p>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="A"> A. Individualism and democracy</label>
+                <label><input type="radio" name="q1" value="B"> B. Religious morality and survival</label>
+                <label><input type="radio" name="q1" value="C"> C. Emotional connection to nature</label>
+                <label><input type="radio" name="q1" value="D"> D. Disillusionment and fragmentation</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>2. Which literary movement focused on reason, democracy, and individuality as key themes?</p>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="A"> A. American Romanticism</label>
+                <label><input type="radio" name="q2" value="B"> B. The Enlightenment and Revolutionary Literature</label>
+                <label><input type="radio" name="q2" value="C"> C. Realism and Naturalism</label>
+                <label><input type="radio" name="q2" value="D"> D. The Modern Period</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>3. What were Realism and Naturalism most concerned with depicting in their works?</p>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="A"> A. Experimental forms and cultural change</label>
+                <label><input type="radio" name="q3" value="B"> B. The sublime and emotional relationships with nature</label>
+                <label><input type="radio" name="q3" value="C"> C. Ordinary lives and social determinism</label>
+                <label><input type="radio" name="q3" value="D"> D. Religious morality and survival</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>4. What themes are most closely associated with the Modern Period (1910–1945)?</p>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="A"> A. Religious morality and survival</label>
+                <label><input type="radio" name="q4" value="B"> B. Emotional connection to nature and the sublime</label>
+                <label><input type="radio" name="q4" value="C"> C. Fragmentation, disillusionment, and cultural change</label>
+                <label><input type="radio" name="q4" value="D"> D. Ordinary lives and social determinism</label>
+            </div>
+        </div>
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function checkAnswers() {
+        const answers = {
+            q1: 'B',
+            q2: 'B',
+            q3: 'C',
+            q4: 'C'
+        };
+
+        let score = 0;
+        let total = 4;
+
+        for (let question in answers) {
+            const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+            if (userAnswer && userAnswer.value === answers[question]) {
+                score++;
+            }
+        }
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `You scored ${score} out of ${total}.`;
+    }
+</script>
+
+</body>
+</html>
